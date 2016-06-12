@@ -1,0 +1,29 @@
+<br>
+<br>
+
+    <div class="container">
+        <div class="row">
+
+               <h3>User PEPS classement</h3>
+               <hr>
+               
+               <div class="tab-content">
+               <ul class="media-list tab-pane fade in active">
+                <li class="media" ng-repeat="user in resultUserList | orderBy :'-peps'">
+                    <div class="media-left media-middle">
+                        
+                        <img class="media-object img-thumbnail"
+                        src="" alt="user image">
+                       
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{user.username}}
+                         <span class="badge">{{user.peps}} PEPS</span></h2>
+                     
+                    </div>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+        </div>

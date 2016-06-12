@@ -1,0 +1,29 @@
+<br>
+<br>
+
+    <div class="container">
+        <div class="row">
+
+               <h3>Shop PEPS classement</h3>
+               <hr>
+               
+               <div class="tab-content">
+               <ul class="media-list tab-pane fade in active">
+                <li class="media" ng-repeat="shop in resultShopList | orderBy :'-pepsShop'">
+                    <div class="media-left media-middle">
+                        
+                        <img class="media-object img-thumbnail"
+                        src="" alt="shop image">
+                       
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{shop.name}}
+                        <span class="badge">{{shop.pepsShop}} PEPS</span>
+            
+                    </div>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+        </div>

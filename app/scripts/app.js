@@ -9,23 +9,49 @@
  * Main module of the application.
  */
 angular
-  .module('fbranciardCourseraYoAngularApp', [
-    'ngResource',
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+  .module('fbranciardCourseraYoAngularApp', ['ui.router','ngResource','ngDialog','lbServices'])
+.config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+        
+            // route for the home page
+            .state('app', {
+                url:'/',
+                views: {
+                    'header': {
+                        templateUrl : 'views/header.html',
+                        controller  : 'HeaderController'
+                    },
+                    'content': {
+                        templateUrl : 'views/main.html'
+                    },
+                    'footer': {
+                        templateUrl : 'views/footer.html',
+                    }
+                }
+
+            })
+            .state('app.shops', {
+                url:'shops',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/shops.html',
+                        controller  : 'ShopsController'                  
+                    }
+                }
+            })
+            .state('app.users', {
+                url:'users',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/users.html',
+                        controller  : 'UsersController'                  
+                    }
+                }
+            })
+            
+            ;
+    
+        $urlRouterProvider.otherwise('/');
+    })
+;
+
